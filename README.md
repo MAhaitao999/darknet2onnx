@@ -20,3 +20,5 @@
 - python3 -B platedetection\_onnx.py
 
 由于yolov3.weights文件很大, github不支持上传. 有需要的可自行前往[darknet官网](https://pjreddie.com/media/files/yolov3.weights)下载.
+
+onnx\_inference.py 文件是直接对onnx文件进行推理.
