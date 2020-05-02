@@ -726,7 +726,9 @@ def main():
     # shape of (in CHW format):
     output_tensor_dims = OrderedDict()
     kernel_size_1 = int(img_size/32)
+    print(kernel_size_1)
     kernel_size_2 = int(img_size/16)
+    print(kernel_size_2)
     output_tensor_dims['039_convolutional'] = [18, kernel_size_1, kernel_size_1]
     output_tensor_dims['046_convolutional'] = [18, kernel_size_2, kernel_size_2]
     print(output_tensor_dims)

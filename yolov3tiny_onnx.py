@@ -758,8 +758,8 @@ def main():
     output_tensor_dims = OrderedDict()
     kernel_size_1 = int(img_size/32)
     kernel_size_2 = int(img_size/16)
-    output_tensor_dims['016_convolutional'] = [18, kernel_size_1, kernel_size_1]
-    output_tensor_dims['023_convolutional'] = [18, kernel_size_2, kernel_size_2]
+    output_tensor_dims['016_convolutional'] = [255, kernel_size_1, kernel_size_1]
+    output_tensor_dims['023_convolutional'] = [255, kernel_size_2, kernel_size_2]
 
     # Create a GraphBuilderONNX object with the known output tensor dimensions:
     builder = GraphBuilderONNX(output_tensor_dims)
