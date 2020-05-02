@@ -22,3 +22,5 @@
 由于yolov3.weights文件很大, github不支持上传. 有需要的可自行前往[darknet官网](https://pjreddie.com/media/files/yolov3.weights)下载.
 
 onnx\_inference.py 文件是直接对onnx文件进行推理.
+
+onnx2trt\_yolov3tiny.py 文件是将yolov3-tiny网络的onnx文件转成trt文件并进行推理加速. 我在Jetson Tx2平台上是测试成功的.
