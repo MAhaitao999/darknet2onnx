@@ -670,7 +670,7 @@ class GraphBuilderONNX(object):
 
 
 def main():
-    cfg_file_path = 'cfg/yolov3.cfg'
+    cfg_file_path = '../../cfg/yolov3.cfg'
     # These are the only layers DarkNetParser will extract parameters from. The three layers of
     # type 'yolo' are not parsed in detail because they are included in the post-processing later:
     supported_layers = ['net', 'convolutional', 'shortcut', 'route', 'upsample']
@@ -696,7 +696,7 @@ def main():
 
     # We want to populate our network with weights later, that's why we download those from
     # the official mirror (and verify the checksum):
-    weights_file_path = 'weights/yolov3.weights'
+    weights_file_path = '../../weights/yolov3.weights'
 
     # Now generate an ONNX graph with weights from the previously parsed layer configurations
     # and the weights file:
@@ -712,7 +712,7 @@ def main():
     onnx.checker.check_model(yolov3_model_def)
 
     # Serialize the generated ONNX graph to this file:
-    output_file_path = 'onnx/yolov3.onnx'
+    output_file_path = '../../onnx/yolov3.onnx'
     onnx.save(yolov3_model_def, output_file_path)
 
 

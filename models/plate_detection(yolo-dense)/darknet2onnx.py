@@ -506,6 +506,8 @@ class GraphBuilderONNX(object):
         stride = layer_dict['stride']
         filters = layer_dict['filters']
         batch_normalize = False
+        pad = layer_dict['pad']
+        print("**********************", pad)
         if 'batch_normalize' in layer_dict.keys(
         ) and layer_dict['batch_normalize'] == 1:
             batch_normalize = True
@@ -528,7 +530,7 @@ class GraphBuilderONNX(object):
             outputs=[layer_name],
             kernel_shape=kernel_shape,
             strides=strides,
-            auto_pad='SAME_LOWER',
+            auto_pad='SAME_LOWER' if (pad==1) else 'VALID',
             dilations=dilations,
             name=layer_name
         )
@@ -706,7 +708,7 @@ def main():
     img_size = 325
 
     # Download the config for YOLOv3 if not present yet, and analyze the checksum:
-    cfg_file_path = 'cfg/plate_detection.cfg'
+    cfg_file_path = '../../cfg/plate_detection.cfg'
 
     # These are the only layers DarkNetParser will extract parameters from. The three layers of
     # type 'yolo' are not parsed in detail because they are included in the post-processing later:
@@ -739,7 +741,7 @@ def main():
     #
     # We want to populate our network with weights later, that's why we download those from
     # the official mirror (and verify the checksum):
-    weights_file_path = 'weights/plate_detection.weights'
+    weights_file_path = '../../weights/plate_detection.weights'
 
     # Now generate an ONNX graph with weights from the previously parsed layer configurations
     # and the weights file:
@@ -754,7 +756,7 @@ def main():
     onnx.checker.check_model(yolov3_model_def)
 
     # Serialize the generated ONNX graph to this file:
-    output_file_path = 'onnx/plate_detection.onnx'
+    output_file_path = '../../onnx/plate_detection.onnx'
     onnx.save(yolov3_model_def, output_file_path)
 
 

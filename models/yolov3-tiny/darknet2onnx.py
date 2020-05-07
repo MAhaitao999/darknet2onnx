@@ -737,7 +737,7 @@ def main():
     img_size = 416
 
     # Download the config for YOLOv3 if not present yet, and analyze the checksum:
-    cfg_file_path = 'cfg/yolov3-tiny.cfg'
+    cfg_file_path = '../../cfg/yolov3-tiny.cfg'
 
     # These are the only layers DarkNetParser will extract parameters from. The three layers of
     # type 'yolo' are not parsed in detail because they are included in the post-processing later:
@@ -766,7 +766,7 @@ def main():
 
     # We want to populate our network with weights later, that's why we download those from
     # the official mirror (and verify the checksum):
-    weights_file_path = 'weights/yolov3-tiny.weights'
+    weights_file_path = '../../weights/yolov3-tiny.weights'
 
     # Now generate an ONNX graph with weights from the previously parsed layer configurations
     # and the weights file:
@@ -781,7 +781,7 @@ def main():
     onnx.checker.check_model(yolov3_model_def)
 
     # Serialize the generated ONNX graph to this file:
-    output_file_path = 'onnx/yolov3-tiny.onnx'
+    output_file_path = '../../onnx/yolov3-tiny.onnx'
     onnx.save(yolov3_model_def, output_file_path)
 
 

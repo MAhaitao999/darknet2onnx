@@ -1,9 +1,8 @@
-NVIDIA TensorRT sample:’¨„
-­
+NVIDIA TensorRT sample:™¨„
+¨
 000_net
-001_convolutional_conv_weights001_convolutional001_convolutional"Conv*
-auto_pad"
-SAME_LOWER *
+001_convolutional_conv_weights001_convolutional001_convolutional"Conv*
+auto_pad"VALID *
 	dilations@@ *
 kernel_shape@@ *
 strides@@ 
@@ -566,9 +565,9 @@ g
 042_convolutional_lrelu
 043_upsample_scale043_upsample043_upsample"Upsample*
 mode"nearest 
-F
+R
 043_upsample
-035_maxpool	044_route	044_route"Concat*
+034_convolutional_lrelu	044_route	044_route"Concat*
 axis 
 ¯
 	044_route
